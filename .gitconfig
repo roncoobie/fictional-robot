@@ -1,0 +1,25 @@
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[user]
+	name = Baxter Crabtree
+	email = baxter.crabtree@gmail.com
+[color]
+  ui = auto
+[color "branch"]
+  current = green bold
+  local = green
+  remote = cyan
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+#[include]
+#  path = "H:\\"
