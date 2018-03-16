@@ -1,0 +1,15 @@
+{
+    "editor.fontFamily": "SF Mono,DejaVu Sans Mono, Input Mono, Monaco",
+    //icons in the Explorer
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.colorTheme": "Mocoding-D",
+    //changing from “Tag Parser” to “Default” for new IntelliSense engine updates circa 7/2017
+    "C_Cpp.intelliSenseEngine": "Default",
+    "editor.cursorStyle": "block",
+    "editor.cursorBlinking": "phase",
+    "workbench.colorCustomizations":{
+        "editorActiveLineNumber.foreground": "#00ff00",
+        "editor.selectionBackground":"#0000ff",
+        "editorCursor.foreground":"#ff00ff",
+	}
+}
