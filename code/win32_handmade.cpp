@@ -8,6 +8,6 @@ WinMain(HINSTANCE hInstance,
 )
 {
 
-  MessageBox(0,"This is the message","This is the caption",MB_OK|MB_ICONINFORMATION);
+  MessageBoxA(0,"This is the message","This is the caption",MB_OK|MB_ICONINFORMATION);
   return(0);
 };
