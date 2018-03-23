@@ -1,5 +1,5 @@
 {
-    "editor.fontFamily": "SF Mono,DejaVu Sans Mono, Input Mono, Monaco",
+    "editor.fontFamily": "SF Mono,'IBM Plex Mono Medium', Monaco",
     //icons in the Explorer
     "workbench.iconTheme": "vscode-icons",
     "workbench.colorTheme": "Mocoding-D",

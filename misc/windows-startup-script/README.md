@@ -1,0 +1,1 @@
+This is to be put in the startup folder in Windows. The purpose is to automatically SUBST the w directory to the H directory. This won't be needed in MacOS. For any given Windows machine this will need to be customized. 
