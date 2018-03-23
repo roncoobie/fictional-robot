@@ -1,3 +1,5 @@
+REM this file contains the instructions for compiling and placing the output in the correct directory for debugging.
+REM NOTE: MUST BE COMPILED IN WINDOWS.
 @echo off
 rem make sure the directory "build" exists for putting in our debug stuff
 mkdir ..\build
