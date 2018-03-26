@@ -2,7 +2,7 @@
     "editor.fontFamily": "SF Mono,'IBM Plex Mono Medium', Monaco",
     //icons in the Explorer
     "workbench.iconTheme": "vscode-icons",
-    "workbench.colorTheme": "Mocoding-D",
+    "workbench.colorTheme": "Reloaded Dark [Default]",
     //changing from “Tag Parser” to “Default” for new IntelliSense engine updates circa 7/2017
     "C_Cpp.intelliSenseEngine": "Default",
     "editor.cursorStyle": "block",
