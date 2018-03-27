@@ -6,6 +6,8 @@ MainWindowCallback(HWND   Window,
                    WPARAM WParam,
                    LPARAM LParam)
 {
+  LRESULT Result = 0;
+
   switch(Message)
   {
     case WM_SIZE:
@@ -31,8 +33,10 @@ MainWindowCallback(HWND   Window,
     default:
     {
 //      OutputDebugStringA("default\n");
+      Result = ;
     }break;
-  } 
+  }
+  return(Result); 
 }
 
 /*WinMain is what we need to call to get the OS talking to the application. 
