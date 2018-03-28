@@ -32,8 +32,8 @@ MainWindowCallback(HWND   Window,
 
     default:
     {
-//      OutputDebugStringA("default\n");
-      Result = ;
+//      OutputDebugStringA("default\n"); //may use this later if we need to print anything out about defaults
+      Result = DefWindowProc(Window, Message, WParam, LParam);
     }break;
   }
   return(Result); 
@@ -57,6 +57,30 @@ WinMain(HINSTANCE Instance,
   WindowClass.hInstance = hInstance;
   //HICON     hIcon; Will use this for game icon eventually.
   WindowClass.lpszClassName = "FictionalRobotWindowClass";
+
+  //Registers a window class for subsequent use in calls to the CreateWindow or CreateWindowEx function.
+  if(RegisterClass(&WindowClass))
+    if
+    {
+      HWND WindowHandle = CreateWindowEx( //Creates an overlapped, pop-up, or child window.
+        DWORD     dwExStyle,
+        LPCTSTR   lpClassName,
+        LPCTSTR   lpWindowName,
+        DWORD     dwStyle,
+        int       x,
+        int       y,
+        int       nWidth,
+        int       nHeight,
+        HWND      hWndParent,
+        HMENU     hMenu,
+        HINSTANCE hInstance,
+        LPVOID    lpParam
+      );
+    }
+    else
+    {
+    //TODO: Put some logging in here.
+    };
 
   return(0);
 
