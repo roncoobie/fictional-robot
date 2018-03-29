@@ -60,22 +60,43 @@ WinMain(HINSTANCE Instance,
 
   //Registers a window class for subsequent use in calls to the CreateWindow or CreateWindowEx function.
   if(RegisterClass(&WindowClass))
-    if
     {
-      HWND WindowHandle = CreateWindowEx( //Creates an overlapped, pop-up, or child window.
-        DWORD     dwExStyle,
-        LPCTSTR   lpClassName,
-        LPCTSTR   lpWindowName,
-        DWORD     dwStyle,
-        int       x,
-        int       y,
-        int       nWidth,
-        int       nHeight,
-        HWND      hWndParent,
-        HMENU     hMenu,
-        HINSTANCE hInstance,
-        LPVOID    lpParam
-      );
+      HWND WindowHandle = 
+        CreateWindowEx( //Creates an overlapped, pop-up, or child window.
+          0,
+          WindowClass.lpszClassName,
+          "Fictional Robot",
+          WS_OVERLAPPEDWINDOW|WS_VISIBLE,
+          CW_USEDEFAULT,
+          CW_USEDEFAULT,
+          CW_USEDEFAULT,
+          CW_USEDEFAULT,
+          0,
+          0,
+          Instance,
+          0);
+      if(WindowHandle)
+      {
+        MSG Message;
+        for(;;)
+        {
+          //need to start a message queue to loop through and extract any messages that may come in.
+          BOOL MessageResult = GetMessage(&Message,0,0,0));
+          if(MessageResult > 0)
+          {
+            TranslateMessage(&Message);
+            DisapatchMessage(&Message);
+          }
+          else
+          {
+            break;
+          }
+        }
+      }
+      else
+      {
+      //TODO: Put some logging in here.
+      }
     }
     else
     {
