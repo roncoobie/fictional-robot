@@ -53,8 +53,8 @@ WinMain(HINSTANCE Instance,
   //TODO: Check that HREDRAW and VREDRAW still matter to us.
   WindowClass.style = CS_OWNDC|CS_HREDRAW|CS_VREDRAW; //Allocates a unique device context for each window in the class.
   // This will handle all of the messages coming from Windows.
-  WindowClass.lpfnWndProc = ;
-  WindowClass.hInstance = hInstance;
+  WindowClass.lpfnWndProc = MainWindowCallback;
+  WindowClass.hInstance = Instance;
   //HICON     hIcon; Will use this for game icon eventually.
   WindowClass.lpszClassName = "FictionalRobotWindowClass";
 
@@ -81,11 +81,11 @@ WinMain(HINSTANCE Instance,
         for(;;)
         {
           //need to start a message queue to loop through and extract any messages that may come in.
-          BOOL MessageResult = GetMessage(&Message,0,0,0));
+          BOOL MessageResult = GetMessage(&Message,0,0,0);
           if(MessageResult > 0)
           {
             TranslateMessage(&Message);
-            DisapatchMessage(&Message);
+            DispatchMessage(&Message);
           }
           else
           {
