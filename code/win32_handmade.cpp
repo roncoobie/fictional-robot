@@ -29,7 +29,11 @@ MainWindowCallback(HWND   Window,
     {
       OutputDebugStringA("WM_ACTIVATEAPP\n");
     }break;
-
+    
+    case WM_PAINT:
+    {
+      OutputDebugStringA("WM_PAINT\n");
+    }break
     default:
     {
 //      OutputDebugStringA("default\n"); //may use this later if we need to print anything out about defaults
