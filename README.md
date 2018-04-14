@@ -16,7 +16,8 @@ TODO: instructions on how to compile.
     1. `git commit`, which will open vim by default
     2. hit `i` to enter insert mode
     3. enter commit message
-    4. hit `:x` to save and return to bash.
+    4. hit `esc` to exit insert mode
+    5. hit `:x` to save and return to bash.
 
 ## OLD MESSAGES
 
