@@ -65,20 +65,10 @@ WinMain(HINSTANCE Instance,
   //Registers a window class for subsequent use in calls to the CreateWindow or CreateWindowEx function.
   if(RegisterClass(&WindowClass))
     {
-      HWND WindowHandle = 
-        CreateWindowEx( //Creates an overlapped, pop-up, or child window.
-          0,
-          WindowClass.lpszClassName,
-          "Fictional Robot",
-          WS_OVERLAPPEDWINDOW|WS_VISIBLE,
-          CW_USEDEFAULT,
-          CW_USEDEFAULT,
-          CW_USEDEFAULT,
-          CW_USEDEFAULT,
-          0,
-          0,
-          Instance,
-          0);
+      HWND WindowHandle =
+      //Creates an overlapped, pop-up, or child window. 
+      CreateWindowEx(0,WindowClass.lpszClassName,"Fictional Robot",WS_OVERLAPPEDWINDOW|WS_VISIBLE,CW_USEDEFAULT,CW_USEDEFAULT,CW_USEDEFAULT,CW_USEDEFAULT,0,0,Instance,0);
+      
       if(WindowHandle)
       {
         MSG Message;
@@ -101,6 +91,9 @@ WinMain(HINSTANCE Instance,
       {
       //TODO: Put some logging in here.
       }
+      BOOL UpdateWindow(
+        _In_ HWND hWnd
+      );
     }
     else
     {
