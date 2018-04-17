@@ -32,7 +32,14 @@ MainWindowCallback(HWND   Window,
     
     case WM_PAINT:
     {
-      OutputDebugStringA("WM_PAINT\n");
+      PAINTSTRUCT Paint;
+      HDC DeviceContext = BeginPaint(Window,&Paint);
+      int X = Paint.rcPaint.left;
+      int Y = Paint.rcPaint.top;
+      int Height = Paint.rcPaint.bottom - Paint.rcPaint.top; 
+      int Width = Paint.rcPaint.right - Paint.rcPaint.left;
+      PatBlt(DeviceContext,X,Y,Width,Height,WHITENESS);
+      EndPaint(Window,&Paint);
     }break
     default:
     {
@@ -91,9 +98,6 @@ WinMain(HINSTANCE Instance,
       {
       //TODO: Put some logging in here.
       }
-      BOOL UpdateWindow(
-        _In_ HWND hWnd
-      );
     }
     else
     {
