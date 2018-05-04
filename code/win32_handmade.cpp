@@ -38,9 +38,19 @@ MainWindowCallback(HWND   Window,
       int Y = Paint.rcPaint.top;
       int Height = Paint.rcPaint.bottom - Paint.rcPaint.top; 
       int Width = Paint.rcPaint.right - Paint.rcPaint.left;
+      static DWORD Operation = WHITENESS;
       PatBlt(DeviceContext,X,Y,Width,Height,WHITENESS);
+      if(Operation == WHITENESS)
+      {
+        Operation = BLACKNESS;
+      }
+      else
+      {
+        Operation = WHITENESS;
+      }
       EndPaint(Window,&Paint);
-    }break
+    }break;
+    
     default:
     {
 //      OutputDebugStringA("default\n"); //may use this later if we need to print anything out about defaults
@@ -61,8 +71,6 @@ WinMain(HINSTANCE Instance,
   //Info on WNDCLASS at https://msdn.microsoft.com/en-us/library/windows/desktop/ms633576(v=vs.85).aspx
   WNDCLASS WindowClass = {0};
 
-  //TODO: Check that HREDRAW and VREDRAW still matter to us.
-  WindowClass.style = CS_OWNDC|CS_HREDRAW|CS_VREDRAW; //Allocates a unique device context for each window in the class.
   // This will handle all of the messages coming from Windows.
   WindowClass.lpfnWndProc = MainWindowCallback;
   WindowClass.hInstance = Instance;
@@ -82,11 +90,11 @@ WinMain(HINSTANCE Instance,
         for(;;)
         {
           //need to start a message queue to loop through and extract any messages that may come in.
-          BOOL MessageResult = GetMessage(&Message,0,0,0);
+          BOOL MessageResult = GetMessageA(&Message,0,0,0);
           if(MessageResult > 0)
           {
             TranslateMessage(&Message);
-            DispatchMessage(&Message);
+            DispatchMessageA(&Message);
           }
           else
           {

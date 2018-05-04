@@ -8,7 +8,7 @@
     "editor.cursorStyle": "block",
     "editor.cursorBlinking": "phase",
     "workbench.colorCustomizations":{
-        "editorActiveLineNumber.foreground": "#00ff00",
+        "editorLineNumber.activeForeground": "#00ff00",
         "editor.selectionBackground":"#0000ff",
         "editorCursor.foreground":"#ff00ff",
     },
