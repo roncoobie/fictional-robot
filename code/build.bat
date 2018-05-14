@@ -9,7 +9,7 @@ pushd ..\build
 
 rem compile and stick the executable in the "build" directory.
 rem cl -Zi ..\fictional-robot\code\win32_handmade.cpp user32.lib
-cl -Zi ..\code\win32_handmade.cpp user32.lib
+cl -Zi ..\code\win32_handmade.cpp user32.lib Gdi32.lib
 
 rem pop back into the current directory.
 popd

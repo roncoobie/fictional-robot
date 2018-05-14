@@ -40,7 +40,7 @@ MainWindowCallback(HWND   Window,
       int Width = Paint.rcPaint.right - Paint.rcPaint.left;
       PatBlt(DeviceContext,X,Y,Width,Height,WHITENESS);
       EndPaint(Window,&Paint);
-    }break
+    }break;
     default:
     {
 //      OutputDebugStringA("default\n"); //may use this later if we need to print anything out about defaults
