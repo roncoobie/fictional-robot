@@ -13,33 +13,33 @@ MainWindowCallback(HWND   Window,
     case WM_SIZE:
     {
       OutputDebugStringA("WM_SIZE\n");
-    }break;
+    } break;
 
     case WM_DESTROY:
     {
       OutputDebugStringA("WM_DESTROY\n");
-    }break;
+    } break;
    
     case WM_CLOSE:
     {
       OutputDebugStringA("WM_CLOSE\n");
-    }break;
+    } break;
 
     case WM_ACTIVATEAPP:
     {
       OutputDebugStringA("WM_ACTIVATEAPP\n");
-    }break;
+    } break;
     
     case WM_PAINT:
     {
       PAINTSTRUCT Paint;
-      HDC DeviceContext = BeginPaint(Window,&Paint);
+      HDC DeviceContext = BeginPaint(Window, &Paint);
       int X = Paint.rcPaint.left;
       int Y = Paint.rcPaint.top;
       int Height = Paint.rcPaint.bottom - Paint.rcPaint.top; 
       int Width = Paint.rcPaint.right - Paint.rcPaint.left;
       static DWORD Operation = WHITENESS;
-      PatBlt(DeviceContext,X,Y,Width,Height,WHITENESS);
+      PatBlt(DeviceContext, X, Y, Width, Height, WHITENESS);
       if(Operation == WHITENESS)
       {
         Operation = BLACKNESS;
@@ -49,13 +49,13 @@ MainWindowCallback(HWND   Window,
         Operation = WHITENESS;
       }
       EndPaint(Window,&Paint);
-    }break;
+    } break;
     
     default:
     {
 //      OutputDebugStringA("default\n"); //may use this later if we need to print anything out about defaults
       Result = DefWindowProc(Window, Message, WParam, LParam);
-    }break;
+    } break;
   }
   return(Result); 
 }
@@ -78,18 +78,29 @@ WinMain(HINSTANCE Instance,
   WindowClass.lpszClassName = "FictionalRobotWindowClass";
 
   //Registers a window class for subsequent use in calls to the CreateWindow or CreateWindowEx function.
-  if(RegisterClass(&WindowClass))
+  if(RegisterClassA(&WindowClass))
     {
       HWND WindowHandle =
       //Creates an overlapped, pop-up, or child window. 
-      CreateWindowEx(0,WindowClass.lpszClassName,"Fictional Robot",WS_OVERLAPPEDWINDOW|WS_VISIBLE,CW_USEDEFAULT,CW_USEDEFAULT,CW_USEDEFAULT,CW_USEDEFAULT,0,0,Instance,0);
-      
+      CreateWindowEx(
+        0,
+        WindowClass.lpszClassName,
+        "Fictional Robot",
+        WS_OVERLAPPEDWINDOW|WS_VISIBLE,
+        CW_USEDEFAULT,
+        CW_USEDEFAULT,
+        CW_USEDEFAULT,
+        CW_USEDEFAULT,
+        0,
+        0,
+        Instance,
+        0);      
       if(WindowHandle)
       {
-        MSG Message;
         for(;;)
         {
           //need to start a message queue to loop through and extract any messages that may come in.
+          MSG Message;
           BOOL MessageResult = GetMessageA(&Message,0,0,0);
           if(MessageResult > 0)
           {
